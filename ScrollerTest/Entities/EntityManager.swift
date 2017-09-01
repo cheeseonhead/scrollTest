@@ -12,11 +12,14 @@ class EntityManager
 
     var entities = Set<GKEntity>()
 
-    init(scene: SKScene)
-    {
+    init(scene: SKScene) {
         self.scene = scene
     }
+}
 
+// MARK: Editing
+extension EntityManager
+{
     func add(_ entity: GKEntity)
     {
         entities.insert(entity)
@@ -25,5 +28,22 @@ class EntityManager
         {
             scene?.addChild(spriteNode)
         }
+    }
+}
+
+// MARK: Access
+extension EntityManager
+{
+    func entities<EntityType>(ofType type: EntityType.Type) -> [EntityType]
+    {
+        var returnEntities = [EntityType]()
+
+        for entity in entities {
+            if let matchedEntity = entity as? EntityType {
+                returnEntities.append(matchedEntity)
+            }
+        }
+
+        return returnEntities
     }
 }
