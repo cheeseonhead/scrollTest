@@ -15,6 +15,8 @@ class Tomato: GKEntity
         let texture = SKTexture(imageNamed: "Spaceship")
         let spriteComponent = SpriteComponent(texture: texture)
 
+        spriteComponent.node.anchorPoint = CGPoint(x: 0.5, y: 0)
+
         addComponent(spriteComponent)
     }
 

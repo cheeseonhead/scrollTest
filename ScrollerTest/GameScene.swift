@@ -19,6 +19,7 @@ class GameScene: SKScene
     var entityManager: EntityManager!
 
     var cameraNode: SKCameraNode!
+    var tomato: Tomato!
 
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -62,6 +63,17 @@ private extension GameScene
 
     func addTomato()
     {
-        let ropeNumber =
+        let ropeNumber = Int.random(min: 0, max: numberOfRopes)
+        let ropes = entityManager.entities(ofType: Rope.self)
+        let targetRope = ropes[ropeNumber]
+
+        tomato = Tomato()
+        if let spriteComponent = tomato.component(ofType: SpriteComponent.self),
+           let ropeSprite = targetRope.component(ofType: SpriteComponent.self) {
+            let ropePos = ropeSprite.node.position
+            spriteComponent.node.position = CGPoint(x: ropePos.x, y: ropePos.y + spriteComponent.node.size.height/2)
+        }
+
+        entityManager.add(tomato)
     }
 }
