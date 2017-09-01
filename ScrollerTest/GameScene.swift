@@ -18,11 +18,22 @@ class GameScene: SKScene
 
     var entityManager: EntityManager!
 
+    var cameraNode: SKCameraNode!
+
     override func didMove(to view: SKView) {
         super.didMove(to: view)
 
         entityManager = EntityManager(scene: self)
 
+        addRopes()
+    }
+}
+
+// MARK: Adding Entities
+private extension GameScene
+{
+    func addRopes()
+    {
         let spacing = size.width / CGFloat(numberOfRopes)
         let leftSpacing = spacing / 2
         for i in 0..<numberOfRopes {
