@@ -26,6 +26,7 @@ class GameScene: SKScene
         entityManager = EntityManager(scene: self)
 
         addRopes()
+        addCamera()
     }
 }
 
@@ -46,5 +47,15 @@ private extension GameScene
             }
             entityManager.add(rope)
         }
+    }
+
+    func addCamera()
+    {
+        cameraNode = SKCameraNode()
+
+        camera = cameraNode
+        addChild(cameraNode)
+
+        cameraNode.position = CGPoint(x: size.width/2, y: size.height/2)
     }
 }
