@@ -4,12 +4,18 @@
 //
 
 import GameplayKit
+import SpriteKit
 
 class Tomato: GKEntity
 {
     override init()
     {
         super.init()
+
+        let texture = SKTexture(imageNamed: "Spaceship")
+        let spriteComponent = SpriteComponent(texture: texture)
+
+        addComponent(spriteComponent)
     }
 
     required init?(coder aDecoder: NSCoder) {
