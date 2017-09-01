@@ -27,6 +27,7 @@ class GameScene: SKScene
 
         addRopes()
         addCamera()
+        addTomato()
     }
 }
 
@@ -57,5 +58,10 @@ private extension GameScene
         addChild(cameraNode)
 
         cameraNode.position = CGPoint(x: size.width/2, y: size.height/2)
+    }
+
+    func addTomato()
+    {
+        let ropeNumber =
     }
 }

@@ -19,6 +19,7 @@
 		3404A3BF1F5A03320093E019 /* ScrollerTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A3BE1F5A03320093E019 /* ScrollerTestUITests.swift */; };
 		A33A527CFCBB623FF355C0D4 /* Tomato.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BE47B3D57319BCF6BCD /* Tomato.swift */; };
 		A33A56767553A88F4290D93E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */; };
+		A33A5B3399F54BA78C6B899D /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5600FBBAE4F55986B42D /* MyUtils.swift */; };
 		A33A5BCD5247E70D207BA337 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A51FE46A74D6C0DABDE1A /* EntityManager.swift */; };
 		A33A5EF09E2E61896D85C5C5 /* Rope.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A59A4AAFDD3077612E285 /* Rope.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		3404A3C01F5A03320093E019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A33A51FE46A74D6C0DABDE1A /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		A33A5600FBBAE4F55986B42D /* MyUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
 		A33A59A4AAFDD3077612E285 /* Rope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rope.swift; sourceTree = "<group>"; };
 		A33A5BE47B3D57319BCF6BCD /* Tomato.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tomato.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				3404A3AA1F5A03320093E019 /* Info.plist */,
 				A33A5FB31144118DEBA369B5 /* Entities */,
 				A33A5B27A96A6EDD9DA68553 /* Components */,
+				A33A5D9D0C9A800D81F790BF /* Helpers */,
 			);
 			path = ScrollerTest;
 			sourceTree = "<group>";
@@ -150,6 +153,14 @@
 				A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A33A5D9D0C9A800D81F790BF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A33A5600FBBAE4F55986B42D /* MyUtils.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		A33A5FB31144118DEBA369B5 /* Entities */ = {
@@ -305,6 +316,7 @@
 				A33A56767553A88F4290D93E /* SpriteComponent.swift in Sources */,
 				A33A5BCD5247E70D207BA337 /* EntityManager.swift in Sources */,
 				A33A5EF09E2E61896D85C5C5 /* Rope.swift in Sources */,
+				A33A5B3399F54BA78C6B899D /* MyUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
