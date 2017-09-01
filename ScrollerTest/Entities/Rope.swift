@@ -15,6 +15,8 @@ class Rope: GKEntity
         let texture = SKTexture(imageNamed: "Rope")
         let spriteComponent = SpriteComponent(texture: texture)
 
+        spriteComponent.node.anchorPoint = CGPoint(x: 0.5, y: 0)
+
         addComponent(spriteComponent)
     }
 
