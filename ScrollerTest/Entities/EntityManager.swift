@@ -10,8 +10,20 @@ class EntityManager
 {
     weak var scene: SKScene?
 
+    var entities = Set<GKEntity>()
+
     init(scene: SKScene)
     {
         self.scene = scene
+    }
+
+    func add(_ entity: GKEntity)
+    {
+        entities.insert(entity)
+
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node
+        {
+            scene?.addChild(spriteNode)
+        }
     }
 }

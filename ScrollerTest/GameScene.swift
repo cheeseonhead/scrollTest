@@ -9,8 +9,10 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
-    
+class GameScene: SKScene
+{
+    let numberOfRopes = 4
+
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
 
@@ -20,5 +22,18 @@ class GameScene: SKScene {
         super.didMove(to: view)
 
         entityManager = EntityManager(scene: self)
+
+        let spacing = size.width / CGFloat(numberOfRopes)
+        let leftSpacing = spacing / 2
+        for i in 0..<numberOfRopes {
+            let xPos = leftSpacing + spacing * CGFloat(i)
+            let yPos = CGFloat(0)
+
+            let rope = Rope()
+            if let spriteComponent = rope.component(ofType: SpriteComponent.self) {
+                spriteComponent.node.position = CGPoint(x: xPos, y: yPos)
+            }
+            entityManager.add(rope)
+        }
     }
 }
