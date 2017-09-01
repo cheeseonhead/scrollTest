@@ -17,6 +17,7 @@
 		3404A3A91F5A03320093E019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3404A3A71F5A03320093E019 /* LaunchScreen.storyboard */; };
 		3404A3B41F5A03320093E019 /* ScrollerTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A3B31F5A03320093E019 /* ScrollerTestTests.swift */; };
 		3404A3BF1F5A03320093E019 /* ScrollerTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A3BE1F5A03320093E019 /* ScrollerTestUITests.swift */; };
+		A33A527CFCBB623FF355C0D4 /* Tomato.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BE47B3D57319BCF6BCD /* Tomato.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		3404A3BA1F5A03320093E019 /* ScrollerTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollerTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3404A3BE1F5A03320093E019 /* ScrollerTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollerTestUITests.swift; sourceTree = "<group>"; };
 		3404A3C01F5A03320093E019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A33A5BE47B3D57319BCF6BCD /* Tomato.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tomato.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				3404A3A51F5A03320093E019 /* Assets.xcassets */,
 				3404A3A71F5A03320093E019 /* LaunchScreen.storyboard */,
 				3404A3AA1F5A03320093E019 /* Info.plist */,
+				A33A5FB31144118DEBA369B5 /* Entities */,
 			);
 			path = ScrollerTest;
 			sourceTree = "<group>";
@@ -132,6 +135,14 @@
 				3404A3C01F5A03320093E019 /* Info.plist */,
 			);
 			path = ScrollerTestUITests;
+			sourceTree = "<group>";
+		};
+		A33A5FB31144118DEBA369B5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A33A5BE47B3D57319BCF6BCD /* Tomato.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +284,7 @@
 				3404A39F1F5A03320093E019 /* GameScene.swift in Sources */,
 				3404A3A11F5A03320093E019 /* GameViewController.swift in Sources */,
 				3404A3991F5A03320093E019 /* AppDelegate.swift in Sources */,
+				A33A527CFCBB623FF355C0D4 /* Tomato.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
