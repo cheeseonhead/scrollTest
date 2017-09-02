@@ -8,14 +8,16 @@ import SpriteKit
 
 class WoodenBoard: GKEntity
 {
-    override init()
+    init(fittingWidth: CGFloat)
     {
         super.init()
 
         let texture = SKTexture(imageNamed: "WoodenBoard")
+
         let spriteComponent = SpriteComponent(texture: texture)
 
         spriteComponent.node.anchorPoint = CGPoint(x: 0, y: 0.5)
+        spriteComponent.node.scale(toWidth: fittingWidth)
 
         addComponent(spriteComponent)
     }
