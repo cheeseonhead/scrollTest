@@ -37,14 +37,11 @@ private extension GameScene
 {
     func addRopes()
     {
-        let spacing = size.width / CGFloat(numberOfRopes)
-        let leftSpacing = spacing / 2
-
         var height = CGFloat(0)
         var ropeHeight = CGFloat(0)
         while height < size.height {
             for i in 0..<numberOfRopes {
-                let xPos = leftSpacing + spacing * CGFloat(i)
+                let xPos = ropeXPos(forIndex: i)
                 let yPos = height
 
                 let rope = Rope()
@@ -74,16 +71,30 @@ private extension GameScene
     func addTomato()
     {
         let ropeNumber = Int.random(min: 0, max: numberOfRopes)
-        let ropes = entityManager.entities(ofType: Rope.self)
-        let targetRope = ropes[ropeNumber]
 
         tomato = Tomato()
-        if let spriteComponent = tomato.component(ofType: SpriteComponent.self),
-           let ropeSprite = targetRope.component(ofType: SpriteComponent.self) {
-            let ropePos = ropeSprite.node.position
-            spriteComponent.node.position = CGPoint(x: ropePos.x, y: spriteComponent.node.size.height/4)
+        if let spriteComponent = tomato.component(ofType: SpriteComponent.self) {
+            let xPos = ropeXPos(forIndex: ropeNumber)
+            spriteComponent.node.position = CGPoint(x: xPos, y: spriteComponent.node.size.height/4)
         }
 
         entityManager.add(tomato)
+    }
+
+    func addBoards()
+    {
+
+    }
+}
+
+// MARK: Helpers
+private extension GameScene
+{
+    func ropeXPos(forIndex index: Int) -> CGFloat
+    {
+        let spacing = size.width / CGFloat(numberOfRopes)
+        let leftSpacing = spacing / 2
+
+        return leftSpacing + spacing * CGFloat(index)
     }
 }
