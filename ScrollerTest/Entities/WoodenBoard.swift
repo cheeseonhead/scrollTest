@@ -15,6 +15,8 @@ class WoodenBoard: GKEntity
         let texture = SKTexture(imageNamed: "WoodenBoard")
         let spriteComponent = SpriteComponent(texture: texture)
 
+        spriteComponent.node.anchorPoint = CGPoint(x: 0, y: 0.5)
+
         addComponent(spriteComponent)
     }
 
