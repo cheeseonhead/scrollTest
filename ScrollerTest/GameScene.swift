@@ -39,15 +39,25 @@ private extension GameScene
     {
         let spacing = size.width / CGFloat(numberOfRopes)
         let leftSpacing = spacing / 2
-        for i in 0..<numberOfRopes {
-            let xPos = leftSpacing + spacing * CGFloat(i)
-            let yPos = CGFloat(0)
 
-            let rope = Rope()
-            if let spriteComponent = rope.component(ofType: SpriteComponent.self) {
-                spriteComponent.node.position = CGPoint(x: xPos, y: yPos)
+        var height = CGFloat(0)
+        var ropeHeight = CGFloat(0)
+        while height < size.height {
+            for i in 0..<numberOfRopes {
+                let xPos = leftSpacing + spacing * CGFloat(i)
+                let yPos = height
+
+                let rope = Rope()
+                if let spriteComponent = rope.component(ofType: SpriteComponent.self) {
+                    spriteComponent.node.position = CGPoint(x: xPos, y: yPos)
+                    if ropeHeight == 0 {
+                        ropeHeight = spriteComponent.node.size.height
+                    }
+                }
+                entityManager.add(rope)
             }
-            entityManager.add(rope)
+
+            height+=ropeHeight
         }
     }
 
@@ -71,7 +81,7 @@ private extension GameScene
         if let spriteComponent = tomato.component(ofType: SpriteComponent.self),
            let ropeSprite = targetRope.component(ofType: SpriteComponent.self) {
             let ropePos = ropeSprite.node.position
-            spriteComponent.node.position = CGPoint(x: ropePos.x, y: ropePos.y + spriteComponent.node.size.height/2)
+            spriteComponent.node.position = CGPoint(x: ropePos.x, y: spriteComponent.node.size.height/4)
         }
 
         entityManager.add(tomato)
