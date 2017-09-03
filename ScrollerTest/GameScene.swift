@@ -21,6 +21,9 @@ class GameScene: SKScene
     var cameraNode: SKCameraNode!
     var tomato: Tomato!
 
+    // Update time
+    var lastUpdateTimeInterval: TimeInterval = 0
+
     override func didMove(to view: SKView) {
         super.didMove(to: view)
 
@@ -30,6 +33,14 @@ class GameScene: SKScene
         addCamera()
         addTomato()
         addBoards()
+    }
+
+    override func update(_ currentTime: TimeInterval)
+    {
+        let deltaTime = currentTime - lastUpdateTimeInterval
+        lastUpdateTimeInterval = currentTime
+
+        entityManager.update(deltaTime)
     }
 }
 
@@ -71,9 +82,10 @@ private extension GameScene
 
     func addTomato()
     {
-        let ropeNumber = Int.random(min: 0, max: numberOfRopes)
+//        let ropeNumber = Int.random(min: 0, max: numberOfRopes)
+        let ropeNumber = 0
 
-        tomato = Tomato()
+        tomato = Tomato(entityManager: entityManager)
         if let spriteComponent = tomato.component(ofType: SpriteComponent.self) {
             let xPos = ropeXPos(forIndex: ropeNumber)
             spriteComponent.node.position = CGPoint(x: xPos, y: 50)
@@ -85,8 +97,8 @@ private extension GameScene
 
     func addBoards()
     {
-        let height: [CGFloat] = [100, 150, 200, 250, 300]
-        let index = [0,2,1,2,2]
+        let height: [CGFloat] = [250, 450, 600, 250, 300]
+        let index = [0,1,2,2,2]
 
         for i in 0..<5 {
             let board = WoodenBoard(fittingWidth: ropeSpacing())
