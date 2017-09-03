@@ -49,24 +49,11 @@ private extension GameScene
 {
     func addRopes()
     {
-        var height = CGFloat(0)
-        var ropeHeight = CGFloat(0)
-        while height < size.height {
-            for i in 0..<numberOfRopes {
-                let xPos = ropeXPos(forIndex: i)
-                let yPos = height
+        for i in 0..<numberOfRopes {
+            let xPos = ropeXPos(forIndex: i)
 
-                let rope = Rope()
-                if let spriteComponent = rope.component(ofType: SpriteComponent.self) {
-                    spriteComponent.node.position = CGPoint(x: xPos, y: yPos)
-                    if ropeHeight == 0 {
-                        ropeHeight = spriteComponent.node.size.height
-                    }
-                }
-                entityManager.add(rope)
-            }
-
-            height+=ropeHeight
+            let rope = Rope(position: CGPoint(x: xPos, y: 0), scene: self)
+            entityManager.add(rope)
         }
     }
 
