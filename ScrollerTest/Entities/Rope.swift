@@ -15,9 +15,7 @@ class Rope: GKEntity
         let texture = SKTexture(imageNamed: "Rope")
         let continuousSprite = ContinuousSpriteComponent(scene: scene, texture: texture, position: position)
 
-//        spriteComponent.node.anchorPoint = CGPoint(x: 0.5, y: 0)
-//
-//        addComponent(spriteComponent)
+        addComponent(continuousSprite)
     }
 
     required init?(coder aDecoder: NSCoder) {
