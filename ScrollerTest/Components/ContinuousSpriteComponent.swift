@@ -10,7 +10,7 @@ class ContinuousSpriteComponent: GKComponent
 {
     weak var scene: SKScene?
 
-    init(scene: SKScene)
+    init(scene: SKScene, texture: SKTexture, position: CGPoint)
     {
         self.scene = scene
         super.init()
