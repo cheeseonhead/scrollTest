@@ -9,6 +9,8 @@ class Intersection: GKEntity
 {
     init(position: CGPoint)
     {
+        super.init()
+        
         let intersectionComponent = IntersectionComponent(position: position)
         addComponent(intersectionComponent)
     }
