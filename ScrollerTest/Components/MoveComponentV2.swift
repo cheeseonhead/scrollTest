@@ -8,5 +8,18 @@ import GameplayKit
 
 class MoveComponentV2: GKComponent
 {
+    let entityManager: EntityManager
 
+    var targetIntersection: IntersectionComponent?
+
+    init(entityManager: EntityManager)
+    {
+        self.entityManager = entityManager
+
+        super.init()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
