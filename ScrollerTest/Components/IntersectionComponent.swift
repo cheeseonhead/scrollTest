@@ -12,7 +12,7 @@ class IntersectionComponent: GKComponent
     init(position: CGPoint)
     {
         self.position = position
-        
+
         super.init()
     }
 

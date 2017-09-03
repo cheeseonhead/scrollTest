@@ -8,16 +8,16 @@ import SpriteKit
 
 class Rope: GKEntity
 {
-    override init()
+    init(position: CGPoint, scene: SKScene)
     {
         super.init()
 
         let texture = SKTexture(imageNamed: "Rope")
-        let spriteComponent = SpriteComponent(texture: texture)
+        let continuousSprite = ContinuousSpriteComponent(scene: scene, texture: texture, position: position)
 
-        spriteComponent.node.anchorPoint = CGPoint(x: 0.5, y: 0)
-
-        addComponent(spriteComponent)
+//        spriteComponent.node.anchorPoint = CGPoint(x: 0.5, y: 0)
+//
+//        addComponent(spriteComponent)
     }
 
     required init?(coder aDecoder: NSCoder) {
