@@ -8,7 +8,7 @@ import SpriteKit
 
 class Tomato: GKEntity
 {
-    override init()
+    init(entityManager: EntityManager)
     {
         super.init()
 
@@ -18,6 +18,7 @@ class Tomato: GKEntity
         spriteComponent.node.scale(toWidth: 100)
 
         addComponent(spriteComponent)
+        addComponent(MoveComponent(maxSpeed: 100, maxAcceleration: 5, radius: Float(texture.size().width * 0.3), entityManager: entityManager))
     }
 
     required init?(coder aDecoder: NSCoder) {
