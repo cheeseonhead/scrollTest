@@ -5,6 +5,7 @@
 
 import Foundation
 import SpriteKit
+import GameplayKit
 
 extension Int
 {
@@ -24,5 +25,34 @@ extension SKSpriteNode
         let newHeight = ratio * width
 
         size = CGSize(width: width, height: newHeight)
+    }
+}
+
+extension Array
+{
+    mutating func swapAt(_ a: Int, _ b: Int)
+    {
+        let temp = self[a]
+        self[a] = self[b]
+        self[b] = temp
+    }
+}
+
+extension GKEntity
+{
+    func position() -> CGPoint
+    {
+        let spriteComponent = self.component(ofType: SpriteComponent.self)
+        assert(spriteComponent != nil)
+
+        return spriteComponent!.node.position
+    }
+
+    func size() -> CGSize
+    {
+        let spriteComponent = self.component(ofType: SpriteComponent.self)
+        assert(spriteComponent != nil)
+
+        return spriteComponent!.node.size
     }
 }
