@@ -37,3 +37,22 @@ extension Array
         self[b] = temp
     }
 }
+
+extension GKEntity
+{
+    func position() -> CGPoint
+    {
+        let spriteComponent = self.component(ofType: SpriteComponent.self)
+        assert(spriteComponent != nil)
+
+        return spriteComponent!.node.position
+    }
+
+    func size() -> CGSize
+    {
+        let spriteComponent = self.component(ofType: SpriteComponent.self)
+        assert(spriteComponent != nil)
+
+        return spriteComponent!.node.size
+    }
+}
