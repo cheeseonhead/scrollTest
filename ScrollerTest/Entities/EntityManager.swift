@@ -11,9 +11,29 @@ class EntityManager
     weak var scene: SKScene?
 
     var entities = Set<GKEntity>()
+    var toRemove = Set<GKEntity>()
+    lazy var componentSystems: [GKComponentSystem] = {
+        let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
+        return [moveSystem]
+    }()
 
     init(scene: SKScene) {
         self.scene = scene
+    }
+
+    func update(_ deltaTime: CFTimeInterval)
+    {
+        for componentSystem in componentSystems {
+            componentSystem.update(deltaTime: deltaTime)
+        }
+
+        for currentRemove in toRemove {
+            for componentSystem in componentSystems {
+                componentSystem.removeComponent(foundIn: currentRemove)
+            }
+        }
+
+        toRemove.removeAll()
     }
 }
 
@@ -28,6 +48,20 @@ extension EntityManager
         {
             scene?.addChild(spriteNode)
         }
+
+        for componentSystem in componentSystems {
+            componentSystem.addComponent(foundIn: entity)
+        }
+    }
+
+    func remove(_ entity: GKEntity)
+    {
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node
+        {
+            spriteNode.removeFromParent()
+        }
+
+        toRemove.insert(entity)
     }
 }
 
@@ -36,14 +70,27 @@ extension EntityManager
 {
     func entities<EntityType>(ofType type: EntityType.Type) -> [EntityType]
     {
-        var returnEntities = [EntityType]()
+        return entities.flatMap { entity in
+            if let matched = entity as? EntityType {
+                return matched
+            }
+
+            return nil
+        }
+    }
+
+    func entities<EntityType>(ofType type: EntityType.Type, compare: (EntityType, EntityType?) -> Bool) -> EntityType?
+    {
+        var target: EntityType? = nil
 
         for entity in entities {
-            if let matchedEntity = entity as? EntityType {
-                returnEntities.append(matchedEntity)
+            if let matched = entity as? EntityType {
+                if compare(matched, target) {
+                    target = matched
+                }
             }
         }
 
-        return returnEntities
+        return target
     }
 }
