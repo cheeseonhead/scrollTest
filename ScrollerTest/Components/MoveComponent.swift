@@ -39,7 +39,7 @@ class MoveComponent: GKAgent2D, GKAgentDelegate
             return
         }
 
-        if let targetBoard = targetBoard, nextBoard.position() == targetBoard.position() {
+        if let targetBoard = targetBoard, nextBoard.getPosition() == targetBoard.getPosition() {
             return
         }
         targetBoard = nextBoard
@@ -48,13 +48,13 @@ class MoveComponent: GKAgent2D, GKAgentDelegate
             return
         }
 
-        let curPoint = float2(Float(entity.position().x), Float(entity.position().y))
-        let targetPoint = float2(Float(entity.position().x), Float(nextBoard.position().y))
+        let curPoint = float2(Float(entity.getPosition().x), Float(entity.getPosition().y))
+        let targetPoint = float2(Float(entity.getPosition().x), Float(nextBoard.getPosition().y))
 
-        let testNode0 = GKGraphNode2D(point: vector2(Float(entity.position().x), Float(entity.position().y)))
-        let testNode = GKGraphNode2D(point: vector2(Float(entity.position().x), Float(entity.position().y + 1)))
-        let testNode2 = GKGraphNode2D(point: vector2(Float(nextBoard.position().x), Float(nextBoard.position().y)))
-        let testNode3 = GKGraphNode2D(point: vector2(Float(nextBoard.position().x + nextBoard.size().width), Float(nextBoard.position().y)))
+        let testNode0 = GKGraphNode2D(point: vector2(Float(entity.getPosition().x), Float(entity.getPosition().y)))
+        let testNode = GKGraphNode2D(point: vector2(Float(entity.getPosition().x), Float(entity.getPosition().y + 1)))
+        let testNode2 = GKGraphNode2D(point: vector2(Float(nextBoard.getPosition().x), Float(nextBoard.getPosition().y)))
+        let testNode3 = GKGraphNode2D(point: vector2(Float(nextBoard.getPosition().x + nextBoard.size().width), Float(nextBoard.getPosition().y)))
 
         print("Start and End \(testNode.position), \(testNode2.position)")
 
@@ -95,13 +95,13 @@ extension MoveComponent
     {
         let nextBoard: WoodenBoard? = entityManager.entities(ofType: WoodenBoard.self) { (challenge, champion) in
 
-                if let entity = entity, challenge.position().x > entity.position().x ||
-                    challenge.position().x + challenge.size().width < entity.position().x ||
-                        challenge.position().y < entity.position().y {
+                if let entity = entity, challenge.getPosition().x > entity.getPosition().x ||
+                    challenge.getPosition().x + challenge.size().width < entity.getPosition().x ||
+                        challenge.getPosition().y < entity.getPosition().y {
                     return false
                 }
                 else {
-                    if champion == nil || challenge.position().y < champion!.position().y {
+                    if champion == nil || challenge.getPosition().y < champion!.getPosition().y {
                         return true
                     }
                     

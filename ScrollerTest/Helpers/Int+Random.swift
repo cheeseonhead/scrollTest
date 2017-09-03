@@ -40,7 +40,7 @@ extension Array
 
 extension GKEntity
 {
-    func position() -> CGPoint
+    func getPosition() -> CGPoint
     {
         let spriteComponent = self.component(ofType: SpriteComponent.self)
         assert(spriteComponent != nil)
