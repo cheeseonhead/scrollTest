@@ -5,13 +5,15 @@
 
 import GameplayKit
 
-class IntersectionComponent: GKAgent2D
+class IntersectionComponent: GKComponent
 {
+    var position: CGPoint
+
     init(position: CGPoint)
     {
+        self.position = position
+        
         super.init()
-
-        self.position = float2(position)
     }
 
     required init?(coder aDecoder: NSCoder) {
