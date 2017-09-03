@@ -21,6 +21,7 @@
 		A33A54CFF8A84A0D4CE85293 /* WoodenBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BEBDC2DB87F16BC7FC3 /* WoodenBoard.swift */; };
 		A33A56767553A88F4290D93E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */; };
 		A33A57247D834F4B12A97231 /* MoveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A56FB848A21D0808F2D53 /* MoveBehavior.swift */; };
+		A33A5896EF23F7B3D793A521 /* Intersection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5F6198A4B438006F1954 /* Intersection.swift */; };
 		A33A5B3399F54BA78C6B899D /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5600FBBAE4F55986B42D /* MyUtils.swift */; };
 		A33A5BCD5247E70D207BA337 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A51FE46A74D6C0DABDE1A /* EntityManager.swift */; };
 		A33A5C0FE88B20F7238AFC1A /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5A887424E19D3941C12F /* Heap.swift */; };
@@ -75,6 +76,7 @@
 		A33A5BE47B3D57319BCF6BCD /* Tomato.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tomato.swift; sourceTree = "<group>"; };
 		A33A5BEBDC2DB87F16BC7FC3 /* WoodenBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenBoard.swift; sourceTree = "<group>"; };
 		A33A5D70AF1DDD9B4B9DC517 /* Int+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Random.swift"; sourceTree = "<group>"; };
+		A33A5F6198A4B438006F1954 /* Intersection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intersection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				A33A51FE46A74D6C0DABDE1A /* EntityManager.swift */,
 				A33A59A4AAFDD3077612E285 /* Rope.swift */,
 				A33A5BEBDC2DB87F16BC7FC3 /* WoodenBoard.swift */,
+				A33A5F6198A4B438006F1954 /* Intersection.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				A33A54CFF8A84A0D4CE85293 /* WoodenBoard.swift in Sources */,
 				A33A5C0FE88B20F7238AFC1A /* Heap.swift in Sources */,
 				A33A5DE0F47F8EC669451B15 /* IntersectionComponent.swift in Sources */,
+				A33A5896EF23F7B3D793A521 /* Intersection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
