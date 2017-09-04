@@ -42,6 +42,13 @@ class GameScene: SKScene
 
         entityManager.update(deltaTime)
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        for touch in touches {
+            print("Touch: \(touch.location(in: self))")
+        }
+    }
 }
 
 // MARK: Adding Entities
