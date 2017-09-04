@@ -10,13 +10,86 @@ class ContinuousSpriteComponent: GKComponent
 {
     weak var scene: SKScene?
 
+    let texture: SKTexture
+    let position: CGPoint
+
+    // MARK: States
+    var visibleNodes = Set<SKSpriteNode>()
+    var unusedNodes = Set<SKSpriteNode>()
+    var nextRopeYPos: CGFloat
+
     init(scene: SKScene, texture: SKTexture, position: CGPoint)
     {
         self.scene = scene
+        self.texture = texture
+        self.position = position
+
+        self.nextRopeYPos = self.position.y
+
         super.init()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: Updates
+extension ContinuousSpriteComponent
+{
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
+
+        removeOffScreenSprites()
+        fillScreenWithSprites()
+    }
+}
+
+// MARK: Sprite Manipulation
+private extension ContinuousSpriteComponent
+{
+    func fillScreenWithSprites()
+    {
+        guard let camera = scene?.camera else {
+            return
+        }
+        let maxY = camera.position.y + camera.frame.height / 2
+
+        while nextRopeYPos < maxY {
+            addSprite(at: CGPoint(x: position.x, y: nextRopeYPos))
+            nextRopeYPos += texture.size().height
+        }
+    }
+
+    func addSprite(at position: CGPoint)
+    {
+        var newNode: SKSpriteNode!
+
+        if unusedNodes.count > 0 {
+            newNode = unusedNodes[unusedNodes.startIndex]
+            unusedNodes.remove(newNode)
+        }
+        else {
+            newNode = SKSpriteNode(texture: texture)
+            scene?.addChild(newNode)
+        }
+
+        newNode.position = CGPoint(x: position.x, y: nextRopeYPos)
+        nextRopeYPos += newNode.size.height
+        visibleNodes.insert(newNode)
+    }
+
+    func removeOffScreenSprites()
+    {
+        guard let camera = scene?.camera else {
+            return
+        }
+
+        for node in visibleNodes {
+            if !node.intersects(camera) {
+                visibleNodes.remove(node)
+                unusedNodes.insert(node)
+            }
+        }
     }
 }
