@@ -97,11 +97,8 @@ private extension GameScene
         for i in 0..<5 {
             let board = WoodenBoard(fittingWidth: ropeSpacing())
 
-            if let spriteComponent = board.component(ofType: SpriteComponent.self) {
-                let xPos = ropeXPos(forIndex: index[i])
-                spriteComponent.node.position = CGPoint(x: xPos, y: height[i])
-                spriteComponent.node.zPosition = 2
-            }
+            let xPos = ropeXPos(forIndex: index[i])
+            board.setPosition(CGPoint(x: xPos, y: height[i]))
 
             entityManager.add(board)
         }

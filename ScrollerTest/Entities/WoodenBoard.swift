@@ -25,4 +25,13 @@ class WoodenBoard: GKEntity
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func setPosition(_ position: CGPoint)
+    {
+        guard let spriteNode = component(ofType: SpriteComponent.self)?.node else {
+            return
+        }
+
+        spriteNode.position = position
+    }
 }
