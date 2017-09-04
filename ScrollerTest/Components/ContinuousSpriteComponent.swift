@@ -43,6 +43,18 @@ extension ContinuousSpriteComponent
         removeOffScreenSprites()
         fillScreenWithSprites()
     }
+
+    func removeFromParent()
+    {
+        for node in visibleNodes {
+            node.removeFromParent()
+        }
+        visibleNodes.removeAll()
+        for node in unusedNodes {
+            node.removeFromParent()
+        }
+        unusedNodes.removeAll()
+    }
 }
 
 // MARK: Sprite Manipulation
@@ -50,14 +62,15 @@ private extension ContinuousSpriteComponent
 {
     func fillScreenWithSprites()
     {
-        guard let camera = scene?.camera else {
+        guard let scene = scene,
+              let camera = scene.camera else {
             return
         }
-        let maxY = camera.position.y + camera.frame.height / 2
+        let maxY = camera.position.y + camera.yScale * scene.size.height / 2
 
-        while nextRopeYPos < maxY {
+        while nextRopeYPos <= maxY {
+            print("Adding a node at y: \(nextRopeYPos)")
             addSprite(at: CGPoint(x: position.x, y: nextRopeYPos))
-            nextRopeYPos += texture.size().height
         }
     }
 
@@ -70,13 +83,21 @@ private extension ContinuousSpriteComponent
             unusedNodes.remove(newNode)
         }
         else {
-            newNode = SKSpriteNode(texture: texture)
+            newNode = createSprite()
             scene?.addChild(newNode)
         }
 
         newNode.position = CGPoint(x: position.x, y: nextRopeYPos)
         nextRopeYPos += newNode.size.height
         visibleNodes.insert(newNode)
+    }
+
+    func createSprite() -> SKSpriteNode
+    {
+        let node = SKSpriteNode(texture: texture)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0)
+
+        return node
     }
 
     func removeOffScreenSprites()
