@@ -7,16 +7,5 @@ import GameplayKit
 
 class IntersectionComponent: GKComponent
 {
-    var position: CGPoint
-
-    init(position: CGPoint)
-    {
-        self.position = position
-
-        super.init()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var position = CGPoint(x: 0, y: 0)
 }

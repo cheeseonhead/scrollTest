@@ -20,6 +20,7 @@
 		A33A527CFCBB623FF355C0D4 /* Tomato.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BE47B3D57319BCF6BCD /* Tomato.swift */; };
 		A33A54CFF8A84A0D4CE85293 /* WoodenBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BEBDC2DB87F16BC7FC3 /* WoodenBoard.swift */; };
 		A33A56767553A88F4290D93E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */; };
+		A33A56964976216336CB2A79 /* LeftIntersectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5413895448C26B5CF492 /* LeftIntersectionComponent.swift */; };
 		A33A57247D834F4B12A97231 /* MoveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A56FB848A21D0808F2D53 /* MoveBehavior.swift */; };
 		A33A5896EF23F7B3D793A521 /* Intersection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5F6198A4B438006F1954 /* Intersection.swift */; };
 		A33A5940328BE9FA37D34854 /* ContinuousSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A50CCBC9E38C1985808F3 /* ContinuousSpriteComponent.swift */; };
@@ -70,6 +71,7 @@
 		A33A50CCBC9E38C1985808F3 /* ContinuousSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinuousSpriteComponent.swift; sourceTree = "<group>"; };
 		A33A51FE46A74D6C0DABDE1A /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		A33A5413895448C26B5CF492 /* LeftIntersectionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftIntersectionComponent.swift; sourceTree = "<group>"; };
 		A33A5600FBBAE4F55986B42D /* MyUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
 		A33A56C3E20068DC061F1D81 /* IntersectionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntersectionComponent.swift; sourceTree = "<group>"; };
 		A33A56FB848A21D0808F2D53 /* MoveBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveBehavior.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				A33A56C3E20068DC061F1D81 /* IntersectionComponent.swift */,
 				A33A5EC58CBE155791541F0C /* MoveComponentV2.swift */,
 				A33A50CCBC9E38C1985808F3 /* ContinuousSpriteComponent.swift */,
+				A33A5413895448C26B5CF492 /* LeftIntersectionComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				A33A5896EF23F7B3D793A521 /* Intersection.swift in Sources */,
 				A33A5ABECA9EE343755E04FE /* MoveComponentV2.swift in Sources */,
 				A33A5940328BE9FA37D34854 /* ContinuousSpriteComponent.swift in Sources */,
+				A33A56964976216336CB2A79 /* LeftIntersectionComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
