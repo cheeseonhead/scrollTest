@@ -15,7 +15,8 @@ class EntityManager
     lazy var componentSystems: [GKComponentSystem] = {
         let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
         let continuousSpriteSystem = GKComponentSystem(componentClass: ContinuousSpriteComponent.self)
-        return [moveSystem, continuousSpriteSystem]
+        let intersectionSystem = GKComponentSystem(componentClass: IntersectionComponent.self)
+        return [moveSystem, continuousSpriteSystem, intersectionSystem]
     }()
 
     init(scene: SKScene) {
