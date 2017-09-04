@@ -20,6 +20,7 @@ class WoodenBoard: GKEntity
         spriteComponent.node.scale(toWidth: fittingWidth)
 
         addComponent(spriteComponent)
+        addComponent(IntersectionComponent())
     }
 
     required init?(coder aDecoder: NSCoder) {
