@@ -14,7 +14,8 @@ class EntityManager
     var toRemove = Set<GKEntity>()
     lazy var componentSystems: [GKComponentSystem] = {
         let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
-        return [moveSystem]
+        let continuousSpriteSystem = GKComponentSystem(componentClass: ContinuousSpriteComponent.self)
+        return [moveSystem, continuousSpriteSystem]
     }()
 
     init(scene: SKScene) {
@@ -28,6 +29,7 @@ class EntityManager
         }
 
         for currentRemove in toRemove {
+            entities.remove(currentRemove)
             for componentSystem in componentSystems {
                 componentSystem.removeComponent(foundIn: currentRemove)
             }
