@@ -58,9 +58,11 @@ extension EntityManager
 
     func remove(_ entity: GKEntity)
     {
-        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node
-        {
+        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
             spriteNode.removeFromParent()
+        }
+        if let component = entity.component(ofType: ContinuousSpriteComponent.self) {
+            component.removeFromParent()
         }
 
         toRemove.insert(entity)
