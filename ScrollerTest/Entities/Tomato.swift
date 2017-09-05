@@ -18,7 +18,7 @@ class Tomato: GKEntity
         spriteComponent.node.scale(toWidth: 100)
 
         addComponent(spriteComponent)
-        addComponent(MoveComponent(maxSpeed: 1000, maxAcceleration: 5, radius: 5, entityManager: entityManager))
+        addComponent(MoveComponentV2(entityManager: entityManager))
     }
 
     required init?(coder aDecoder: NSCoder) {
