@@ -11,10 +11,12 @@ class MoveComponentV2: GKComponent
     let entityManager: EntityManager
 
     var destinationPoint: CGPoint?
+    var speed: CGFloat
 
-    init(entityManager: EntityManager)
+    init(speed: CGFloat, entityManager: EntityManager)
     {
         self.entityManager = entityManager
+        self.speed = speed
 
         super.init()
     }
@@ -48,7 +50,8 @@ class MoveComponentV2: GKComponent
         guard targetPoint != nil, targetPoint != destinationPoint else { return }
 
         destinationPoint = targetPoint
-        let action = SKAction.move(to: targetPoint!, duration: 5.0)
+        let distance = (destinationPoint! - node.position).length()
+        let action = SKAction.move(to: targetPoint!, duration: Double(distance / speed))
         let sequence = SKAction.sequence([action])
         
         node.run(sequence)
