@@ -10,7 +10,7 @@ class MoveComponentV2: GKComponent
 {
     let entityManager: EntityManager
 
-    var targetIntersection: IntersectionComponent?
+    var destinationPoint: CGPoint?
 
     init(entityManager: EntityManager)
     {
@@ -21,5 +21,36 @@ class MoveComponentV2: GKComponent
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func update(deltaTime seconds: TimeInterval)
+    {
+        super.update(deltaTime: seconds)
+
+        guard let node = entity?.component(ofType: SpriteComponent.self)?.node else { return }
+
+        let intersectionComponents = entityManager.components(ofType: IntersectionComponent.self)
+
+        var targetPoint: CGPoint? = nil
+        var nextPoint: CGPoint? = nil
+
+        for intersectionComponent in intersectionComponents {
+            for intersection in intersectionComponent.intersections {
+                if intersection.x == node.position.x, intersection.y > node.position.y {
+                    if targetPoint == nil || intersection.y < targetPoint!.y {
+                        targetPoint = intersection
+                        nextPoint = intersectionComponent.intersections[1]
+                    }
+                }
+            }
+        }
+        
+        guard targetPoint != nil, targetPoint != destinationPoint else { return }
+
+        destinationPoint = targetPoint
+        let action = SKAction.move(to: targetPoint!, duration: 5.0)
+        let sequence = SKAction.sequence([action])
+        
+        node.run(sequence)
     }
 }
