@@ -69,7 +69,6 @@ private extension ContinuousSpriteComponent
         let maxY = camera.position.y + camera.yScale * scene.size.height / 2
 
         while nextRopeYPos <= maxY {
-            print("Adding a node at y: \(nextRopeYPos)")
             addSprite(at: CGPoint(x: position.x, y: nextRopeYPos))
         }
     }
