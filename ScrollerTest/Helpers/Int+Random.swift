@@ -42,11 +42,13 @@ extension GKEntity
 {
     func getPosition() -> CGPoint?
     {
-        guard let spriteComponent = self.component(ofType: SpriteComponent.self) else {
-            return nil
+        for component in components {
+            if let positionalComponent = component as? PositionalComponent {
+                return positionalComponent.getPosition()
+            }
         }
 
-        return spriteComponent.node.position
+        return nil
     }
 
     func size() -> CGSize?
