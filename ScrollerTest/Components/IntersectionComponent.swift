@@ -7,7 +7,7 @@ import GameplayKit
 
 class IntersectionComponent: GKComponent
 {
-    let intersectAnchors = [CGPoint]()
+    let intersectAnchors: [CGPoint]
 
     var intersections = [CGPoint(), CGPoint()]
     var entityPosition = CGPoint(x: 0, y: 0)
