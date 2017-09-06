@@ -20,3 +20,11 @@ class SpriteComponent: GKComponent
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+extension SpriteComponent: PositionalComponent
+{
+    func getPosition() -> CGPoint
+    {
+        return node.position
+    }
+}
