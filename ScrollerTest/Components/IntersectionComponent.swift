@@ -7,8 +7,21 @@ import GameplayKit
 
 class IntersectionComponent: GKComponent
 {
+    let intersectAnchors = [CGPoint]()
+
     var intersections = [CGPoint(), CGPoint()]
     var entityPosition = CGPoint(x: 0, y: 0)
+
+    init(anchors: [CGPoint])
+    {
+        intersectAnchors = anchors
+
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func update(deltaTime seconds: TimeInterval)
     {
