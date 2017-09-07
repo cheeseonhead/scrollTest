@@ -40,4 +40,14 @@ class IntersectionComponent: GKComponent
             intersections.append(anchorPosition)
         }
     }
+    
+    func pathToTravel(forward: Bool)
+    {
+        if forward {
+            return intersections
+        }
+        else {
+            return intersections.reversed()
+        }
+    }
 }
