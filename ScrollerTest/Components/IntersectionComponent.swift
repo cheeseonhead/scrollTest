@@ -41,13 +41,14 @@ class IntersectionComponent: GKComponent
         }
     }
     
-    func pathToTravel(forward: Bool) -> [CGPoint]
+    func pathToTravel(withStarting startingIntersection: CGPoint) -> [CGPoint]
     {
-        if forward {
+        if startingIntersection == intersections[intersections.startIndex] {
             return intersections
         }
-        else {
+        else if startingIntersection == intersections[intersections.endIndex] {
             return intersections.reversed()
         }
+        return []
     }
 }
