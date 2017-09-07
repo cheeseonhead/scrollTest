@@ -10,7 +10,7 @@ class MoveComponentV2: GKComponent
 {
     let entityManager: EntityManager
 
-    var destinationPoint: CGPoint?
+    var curDestination: CGPoint?
     var speed: CGFloat
 
     init(speed: CGFloat, entityManager: EntityManager)
@@ -29,31 +29,48 @@ class MoveComponentV2: GKComponent
     {
         super.update(deltaTime: seconds)
 
-        guard let node = entity?.component(ofType: SpriteComponent.self)?.node else { return }
+        guard let node = entity?.component(ofType: SpriteComponent.self)?.node,
+            let curPosition = entity?.getPosition() else { return }
 
         let intersectionComponents = entityManager.components(ofType: IntersectionComponent.self)
-
-        var targetPoint: CGPoint? = nil
-        var nextPoint: CGPoint? = nil
-
+        
+        var bestIntersectionComponent: IntersectionComponent?
+        var bestPoint: CGPoint?
+        
         for intersectionComponent in intersectionComponents {
             for intersection in intersectionComponent.intersections {
-                if intersection.x == node.position.x, intersection.y > node.position.y {
-                    if targetPoint == nil || intersection.y < targetPoint!.y {
-                        targetPoint = intersection
-                        nextPoint = intersectionComponent.intersections[1]
+                if intersection.x == curPosition.x, intersection.y > curPosition.y {
+                    if bestPoint == nil || intersection.y < bestPoint!.y {
+                        bestPoint = intersection
+                        bestIntersectionComponent = intersectionComponent
                     }
                 }
             }
         }
         
-        guard targetPoint != nil, targetPoint != destinationPoint else { return }
-
-        destinationPoint = targetPoint
-        let distance = (destinationPoint! - node.position).length()
-        let action = SKAction.move(to: targetPoint!, duration: Double(distance / speed))
-        let sequence = SKAction.sequence([action])
+        guard let targetPoint = bestPoint,
+            let targetIntersectionComponent = bestIntersectionComponent,
+            targetPoint != curDestination else { return }
+        curDestination = targetPoint
         
-        node.run(sequence)
+        let path = targetIntersectionComponent.pathToTravel(withStarting: targetPoint)
+        
+        var actionSequence = [SKAction]()
+        
+        for index in 0..<path.count {
+            let point = path[index]
+            var previousPoint = curPosition
+            
+            if index > 0 {
+                previousPoint = path[index - 1]
+            }
+            
+            let distance = (point - previousPoint).length()
+            let action = SKAction.move(to: point, duration: Double(distance / speed))
+            
+            actionSequence.append(action)
+        }
+        
+        node.run(SKAction.sequence(actionSequence))
     }
 }
