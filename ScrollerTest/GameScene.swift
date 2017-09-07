@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene
 {
     let numberOfRopes = 4
+    let tomatoBottomPadding = CGFloat(50)
 
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -41,6 +42,7 @@ class GameScene: SKScene
         lastUpdateTimeInterval = currentTime
 
         entityManager.update(deltaTime)
+        positionCamera()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -48,6 +50,18 @@ class GameScene: SKScene
         for touch in touches {
             print("Touch: \(touch.location(in: self))")
         }
+    }
+}
+
+extension GameScene
+{
+    func positionCamera()
+    {
+        guard let tomatoY = tomato.getPosition()?.y else { return }
+        let screenHeight = size.height
+        
+        let finalYPos = tomatoY + 0.5 * screenHeight - tomatoBottomPadding
+        cameraNode.position.y = finalYPos
     }
 }
 
@@ -77,12 +91,12 @@ private extension GameScene
     func addTomato()
     {
 //        let ropeNumber = Int.random(min: 0, max: numberOfRopes)
-        let ropeNumber = 0
+        let ropeNumber = 2
 
         tomato = Tomato(entityManager: entityManager)
         if let spriteComponent = tomato.component(ofType: SpriteComponent.self) {
             let xPos = ropeXPos(forIndex: ropeNumber)
-            spriteComponent.node.position = CGPoint(x: xPos, y: 50)
+            spriteComponent.node.position = CGPoint(x: xPos, y: tomatoBottomPadding)
             spriteComponent.node.zPosition = 3
         }
 
