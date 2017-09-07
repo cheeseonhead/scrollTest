@@ -41,7 +41,7 @@ class IntersectionComponent: GKComponent
         }
     }
     
-    func pathToTravel(forward: Bool)
+    func pathToTravel(forward: Bool) -> [CGPoint]
     {
         if forward {
             return intersections
