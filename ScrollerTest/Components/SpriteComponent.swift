@@ -28,3 +28,11 @@ extension SpriteComponent: PositionalComponent
         return node.position
     }
 }
+
+extension SpriteComponent: Framable
+{
+    func frame() -> CGRect
+    {
+        return node.frame
+    }
+}
