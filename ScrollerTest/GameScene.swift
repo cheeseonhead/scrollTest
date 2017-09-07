@@ -12,7 +12,7 @@ import GameplayKit
 class GameScene: SKScene
 {
     let numberOfRopes = 4
-    let tomatoBottomPadding = CGFloat(80)
+    let tomatoBottomPadding = CGFloat(150)
 
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()

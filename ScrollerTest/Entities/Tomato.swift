@@ -15,7 +15,7 @@ class Tomato: GKEntity
         let texture = SKTexture(imageNamed: "Spaceship")
         let spriteComponent = SpriteComponent(texture: texture)
 
-        spriteComponent.node.scale(toWidth: 100)
+        spriteComponent.node.scale(toWidth: 150)
 
         addComponent(spriteComponent)
         addComponent(MoveComponentV2(speed: 100, entityManager: entityManager))
