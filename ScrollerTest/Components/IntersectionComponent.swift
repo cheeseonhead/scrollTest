@@ -46,7 +46,7 @@ class IntersectionComponent: GKComponent
         if startingIntersection == intersections[intersections.startIndex] {
             return intersections
         }
-        else if startingIntersection == intersections[intersections.endIndex] {
+        else if startingIntersection == intersections[intersections.endIndex - 1] {
             return intersections.reversed()
         }
         return []
