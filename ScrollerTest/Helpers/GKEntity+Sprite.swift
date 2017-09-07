@@ -32,6 +32,12 @@ extension GKEntity
     
     func frame() -> CGRect?
     {
-        guard let spriteComponent
+        for component in components {
+            if let framableComponent = component as? Framable {
+                return framableComponent.frame()
+            }
+        }
+        
+        return nil
     }
 }
