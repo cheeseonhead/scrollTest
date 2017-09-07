@@ -17,6 +17,8 @@
 		3404A3A91F5A03320093E019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3404A3A71F5A03320093E019 /* LaunchScreen.storyboard */; };
 		3404A3B41F5A03320093E019 /* ScrollerTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A3B31F5A03320093E019 /* ScrollerTestTests.swift */; };
 		3404A3BF1F5A03320093E019 /* ScrollerTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A3BE1F5A03320093E019 /* ScrollerTestUITests.swift */; };
+		34AE0F3D1F60D74A00D73C78 /* GKEntity+Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE0F3C1F60D74A00D73C78 /* GKEntity+Sprite.swift */; };
+		34AE0F401F60D7A800D73C78 /* Framable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE0F3F1F60D7A800D73C78 /* Framable.swift */; };
 		A33A527CFCBB623FF355C0D4 /* Tomato.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BE47B3D57319BCF6BCD /* Tomato.swift */; };
 		A33A54CFF8A84A0D4CE85293 /* WoodenBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BEBDC2DB87F16BC7FC3 /* WoodenBoard.swift */; };
 		A33A56767553A88F4290D93E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */; };
@@ -66,6 +68,8 @@
 		3404A3BA1F5A03320093E019 /* ScrollerTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollerTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3404A3BE1F5A03320093E019 /* ScrollerTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollerTestUITests.swift; sourceTree = "<group>"; };
 		3404A3C01F5A03320093E019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34AE0F3C1F60D74A00D73C78 /* GKEntity+Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+Sprite.swift"; sourceTree = "<group>"; };
+		34AE0F3F1F60D7A800D73C78 /* Framable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framable.swift; sourceTree = "<group>"; };
 		A33A50CCBC9E38C1985808F3 /* ContinuousSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinuousSpriteComponent.swift; sourceTree = "<group>"; };
 		A33A51FE46A74D6C0DABDE1A /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
@@ -129,18 +133,18 @@
 		3404A3971F5A03320093E019 /* ScrollerTest */ = {
 			isa = PBXGroup;
 			children = (
-				3404A3981F5A03320093E019 /* AppDelegate.swift */,
-				3404A39A1F5A03320093E019 /* GameScene.sks */,
+				3404A3AA1F5A03320093E019 /* Info.plist */,
 				3404A39C1F5A03320093E019 /* Actions.sks */,
+				3404A39A1F5A03320093E019 /* GameScene.sks */,
+				3404A3981F5A03320093E019 /* AppDelegate.swift */,
 				3404A39E1F5A03320093E019 /* GameScene.swift */,
 				3404A3A01F5A03320093E019 /* GameViewController.swift */,
-				3404A3A21F5A03320093E019 /* Main.storyboard */,
 				3404A3A51F5A03320093E019 /* Assets.xcassets */,
-				3404A3A71F5A03320093E019 /* LaunchScreen.storyboard */,
-				3404A3AA1F5A03320093E019 /* Info.plist */,
-				A33A5FB31144118DEBA369B5 /* Entities */,
 				A33A5B27A96A6EDD9DA68553 /* Components */,
+				A33A5FB31144118DEBA369B5 /* Entities */,
 				A33A5D9D0C9A800D81F790BF /* Helpers */,
+				3404A3A71F5A03320093E019 /* LaunchScreen.storyboard */,
+				3404A3A21F5A03320093E019 /* Main.storyboard */,
 			);
 			path = ScrollerTest;
 			sourceTree = "<group>";
@@ -163,15 +167,24 @@
 			path = ScrollerTestUITests;
 			sourceTree = "<group>";
 		};
+		34AE0F3E1F60D79100D73C78 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A33A5AD2A2EC5598D2D9C267 /* PositionalComponent.swift */,
+				34AE0F3F1F60D7A800D73C78 /* Framable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		A33A5B27A96A6EDD9DA68553 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */,
-				A33A56FB848A21D0808F2D53 /* MoveBehavior.swift */,
-				A33A56C3E20068DC061F1D81 /* IntersectionComponent.swift */,
-				A33A5EC58CBE155791541F0C /* MoveComponentV2.swift */,
+				34AE0F3E1F60D79100D73C78 /* Protocols */,
 				A33A50CCBC9E38C1985808F3 /* ContinuousSpriteComponent.swift */,
-				A33A5AD2A2EC5598D2D9C267 /* PositionalComponent.swift */,
+				A33A56C3E20068DC061F1D81 /* IntersectionComponent.swift */,
+				A33A56FB848A21D0808F2D53 /* MoveBehavior.swift */,
+				A33A5EC58CBE155791541F0C /* MoveComponentV2.swift */,
+				A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -182,6 +195,7 @@
 				A33A5600FBBAE4F55986B42D /* MyUtils.swift */,
 				A33A5D70AF1DDD9B4B9DC517 /* Int+Random.swift */,
 				A33A5A887424E19D3941C12F /* Heap.swift */,
+				34AE0F3C1F60D74A00D73C78 /* GKEntity+Sprite.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -344,10 +358,12 @@
 				A33A5B3399F54BA78C6B899D /* MyUtils.swift in Sources */,
 				A33A5E7CD1C9EC8996192676 /* Int+Random.swift in Sources */,
 				A33A57247D834F4B12A97231 /* MoveBehavior.swift in Sources */,
+				34AE0F3D1F60D74A00D73C78 /* GKEntity+Sprite.swift in Sources */,
 				A33A54CFF8A84A0D4CE85293 /* WoodenBoard.swift in Sources */,
 				A33A5C0FE88B20F7238AFC1A /* Heap.swift in Sources */,
 				A33A5DE0F47F8EC669451B15 /* IntersectionComponent.swift in Sources */,
 				A33A5ABECA9EE343755E04FE /* MoveComponentV2.swift in Sources */,
+				34AE0F401F60D7A800D73C78 /* Framable.swift in Sources */,
 				A33A5940328BE9FA37D34854 /* ContinuousSpriteComponent.swift in Sources */,
 				A33A5EC69661F01764906584 /* PositionalComponent.swift in Sources */,
 			);
@@ -507,7 +523,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.okAyStudios.ScrollerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -521,7 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.okAyStudios.ScrollerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
