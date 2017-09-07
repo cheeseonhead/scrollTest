@@ -19,6 +19,7 @@
 		3404A3BF1F5A03320093E019 /* ScrollerTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A3BE1F5A03320093E019 /* ScrollerTestUITests.swift */; };
 		34AE0F3D1F60D74A00D73C78 /* GKEntity+Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE0F3C1F60D74A00D73C78 /* GKEntity+Sprite.swift */; };
 		34AE0F401F60D7A800D73C78 /* Framable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE0F3F1F60D7A800D73C78 /* Framable.swift */; };
+		34AE0F421F60D97400D73C78 /* CGRect+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE0F411F60D97400D73C78 /* CGRect+Anchor.swift */; };
 		A33A527CFCBB623FF355C0D4 /* Tomato.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BE47B3D57319BCF6BCD /* Tomato.swift */; };
 		A33A54CFF8A84A0D4CE85293 /* WoodenBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5BEBDC2DB87F16BC7FC3 /* WoodenBoard.swift */; };
 		A33A56767553A88F4290D93E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */; };
@@ -70,6 +71,7 @@
 		3404A3C01F5A03320093E019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34AE0F3C1F60D74A00D73C78 /* GKEntity+Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKEntity+Sprite.swift"; sourceTree = "<group>"; };
 		34AE0F3F1F60D7A800D73C78 /* Framable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framable.swift; sourceTree = "<group>"; };
+		34AE0F411F60D97400D73C78 /* CGRect+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Anchor.swift"; sourceTree = "<group>"; };
 		A33A50CCBC9E38C1985808F3 /* ContinuousSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinuousSpriteComponent.swift; sourceTree = "<group>"; };
 		A33A51FE46A74D6C0DABDE1A /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		A33A530E3EC13CDE460A2D74 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				A33A5D70AF1DDD9B4B9DC517 /* Int+Random.swift */,
 				A33A5A887424E19D3941C12F /* Heap.swift */,
 				34AE0F3C1F60D74A00D73C78 /* GKEntity+Sprite.swift */,
+				34AE0F411F60D97400D73C78 /* CGRect+Anchor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				A33A5EF09E2E61896D85C5C5 /* Rope.swift in Sources */,
 				A33A5B3399F54BA78C6B899D /* MyUtils.swift in Sources */,
 				A33A5E7CD1C9EC8996192676 /* Int+Random.swift in Sources */,
+				34AE0F421F60D97400D73C78 /* CGRect+Anchor.swift in Sources */,
 				A33A57247D834F4B12A97231 /* MoveBehavior.swift in Sources */,
 				34AE0F3D1F60D74A00D73C78 /* GKEntity+Sprite.swift in Sources */,
 				A33A54CFF8A84A0D4CE85293 /* WoodenBoard.swift in Sources */,
