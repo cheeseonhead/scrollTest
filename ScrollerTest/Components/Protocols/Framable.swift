@@ -6,4 +6,9 @@
 //  Copyright © 2017 okAy Studios. All rights reserved.
 //
 
-import Foundation
+import SpriteKit
+
+protocol Framable
+{
+    func frame() -> CGRect
+}
