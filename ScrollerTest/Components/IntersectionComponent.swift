@@ -9,8 +9,9 @@ class IntersectionComponent: GKComponent
 {
     let intersectAnchors: [CGPoint]
 
-    var intersections = [CGPoint(), CGPoint()]
+    var intersections = [CGPoint]()
     var entityPosition = CGPoint(x: 0, y: 0)
+    var previousFrame: CGRect?
 
     init(anchors: [CGPoint])
     {
@@ -26,17 +27,17 @@ class IntersectionComponent: GKComponent
     override func update(deltaTime seconds: TimeInterval)
     {
         super.update(deltaTime: seconds)
-
-        if let spriteNode = entity?.component(ofType: SpriteComponent.self)?.node {
-
-            guard entityPosition != spriteNode.position else {return}
-
-            entityPosition = spriteNode.position
-
-            let frame = spriteNode.frame
-            let yPos = frame.origin.y + frame.size.height / 2
-            intersections[0] = CGPoint(x: frame.origin.x, y: yPos)
-            intersections[1] = CGPoint(x: frame.origin.x + frame.size.width, y: yPos)
+        
+        guard let frame = entity?.frame(), frame != previousFrame else {
+            return
+        }
+        previousFrame = frame
+        
+        intersections = [CGPoint]()
+        for anchor in intersectAnchors {
+            let anchorPosition = frame.position(forAnchor: anchor)
+            
+            intersections.append(anchorPosition)
         }
     }
 }
