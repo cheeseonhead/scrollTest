@@ -106,7 +106,7 @@ private extension ContinuousSpriteComponent
         }
 
         for node in visibleNodes {
-            if !node.intersects(camera) {
+            if !camera.contains(node) {
                 visibleNodes.remove(node)
                 unusedNodes.insert(node)
             }
