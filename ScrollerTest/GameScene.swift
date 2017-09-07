@@ -105,7 +105,7 @@ private extension GameScene
 
     func addBoards()
     {
-        let height: [CGFloat] = [200, 450, 600, 250, 300]
+        let height: [CGFloat] = [200, 450, 2000, 250, 300]
         let index = [0,1,1,2,2]
 
         for i in 0..<5 {
